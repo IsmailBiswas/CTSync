@@ -1,0 +1,1223 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="..">
+      
+      
+        <link rel="next" href="../build_and_install/">
+      
+      
+      <link rel="icon" href="../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.12">
+    
+    
+      
+        <title>Project Initiation - CTSYNC</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.2afb09e1.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#ctsync" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="CTSYNC" class="md-header__button md-logo" aria-label="CTSYNC" data-md-component="logo">
+      
+  <img src="../img/favicon.ico" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CTSYNC
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Project Initiation
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/IsmailBiswas/CTSync" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="CTSYNC" class="md-nav__button md-logo" aria-label="CTSYNC" data-md-component="logo">
+      
+  <img src="../img/favicon.ico" alt="logo">
+
+    </a>
+    CTSYNC
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/IsmailBiswas/CTSync" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Project Initiation
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Project Initiation
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#architecture-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Architecture Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#group-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Group Management
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Group Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#group-definition" class="md-nav__link">
+    <span class="md-ellipsis">
+      Group Definition
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#group-controls-and-administration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Group Controls and Administration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#user-options-and-preferences" class="md-nav__link">
+    <span class="md-ellipsis">
+      User Options and Preferences
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security-and-data-transfer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Security and Data Transfer
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Security and Data Transfer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#end-to-end-encryption" class="md-nav__link">
+    <span class="md-ellipsis">
+      End-to-End Encryption
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-structrue-for-transfer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Structrue for Transfer
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#server-and-account-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Server and Account Management
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Server and Account Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#joining-the-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      Joining the Server
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#server-selection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Server Selection
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#invite-key-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Invite Key Management
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#join-group-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      Join Group Process
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api-actions" class="md-nav__link">
+    <span class="md-ellipsis">
+      API Actions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="API Actions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pre-authentication" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pre-Authentication
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected" class="md-nav__link">
+    <span class="md-ellipsis">
+      Protected
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#database-schema" class="md-nav__link">
+    <span class="md-ellipsis">
+      Database Schema
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Database Schema">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#devices-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      Devices Table
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#group-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      Group Table
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#invite-keys-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      Invite Keys Table
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../build_and_install/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Build and Install
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../details/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Some Implementaion details
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#architecture-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Architecture Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#group-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Group Management
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Group Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#group-definition" class="md-nav__link">
+    <span class="md-ellipsis">
+      Group Definition
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#group-controls-and-administration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Group Controls and Administration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#user-options-and-preferences" class="md-nav__link">
+    <span class="md-ellipsis">
+      User Options and Preferences
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security-and-data-transfer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Security and Data Transfer
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Security and Data Transfer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#end-to-end-encryption" class="md-nav__link">
+    <span class="md-ellipsis">
+      End-to-End Encryption
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-structrue-for-transfer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Structrue for Transfer
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#server-and-account-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Server and Account Management
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Server and Account Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#joining-the-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      Joining the Server
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#server-selection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Server Selection
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#invite-key-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Invite Key Management
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#join-group-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      Join Group Process
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api-actions" class="md-nav__link">
+    <span class="md-ellipsis">
+      API Actions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="API Actions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pre-authentication" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pre-Authentication
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected" class="md-nav__link">
+    <span class="md-ellipsis">
+      Protected
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#database-schema" class="md-nav__link">
+    <span class="md-ellipsis">
+      Database Schema
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Database Schema">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#devices-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      Devices Table
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#group-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      Group Table
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#invite-keys-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      Invite Keys Table
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="ctsync">CTSYNC</h1>
+<h2 id="overview">Overview</h2>
+<p>CTSYNC is a cross-platform application that automatically synchronizes the latest clipboard text across your devices. You host and own the server.</p>
+<h2 id="architecture-overview">Architecture Overview</h2>
+<ul>
+<li><strong>Client-Server Model:</strong> Devices must register and join a server to form or join a group.</li>
+<li><strong>Real-Time Sync:</strong> Once in a group, any clipboard update on one device is instantly transmitted (if allowed) to all other devices in the group.</li>
+<li><strong>Security First:</strong> End-to-end encryption ensures that clipboard data remains confidential, with all communication taking place over secure TLS channels.</li>
+</ul>
+<h2 id="group-management">Group Management</h2>
+<h3 id="group-definition">Group Definition</h3>
+<ul>
+<li><strong>Group:</strong> A collection of devices that share the latest clipboard text.</li>
+<li>Each device in the group automatically receives updated clipboard content from any other device in the same group.</li>
+</ul>
+<h3 id="group-controls-and-administration">Group Controls and Administration</h3>
+<ul>
+<li><strong>Device Removal:</strong> Any device within a group can remove another device.</li>
+<li><strong>Adding Devices:</strong> To include a new device, an existing online device must approve the request.</li>
+<li><strong>Constraints:</strong><ul>
+<li>An account can only be a member of one group.</li>
+<li>If an account logs out (losing its login cookie), the device must re-register (create a new account) and rejoin a group.</li>
+</ul>
+</li>
+</ul>
+<h2 id="user-options-and-preferences">User Options and Preferences</h2>
+<ul>
+<li><strong>Transmission Preferences:</strong><ul>
+<li><strong>Opt-out Sending:</strong> A device may choose not to send its clipboard content to the group.</li>
+<li><strong>Opt-out Receiving:</strong> A device may choose not to receive clipboard content from the group.</li>
+</ul>
+</li>
+</ul>
+<h2 id="security-and-data-transfer">Security and Data Transfer</h2>
+<ul>
+<li>The server does not store clipboard data for offline devices.</li>
+<li>Notifications and join requests are only delivered to devices that are online.</li>
+<li>When a new device joins a group, an existing device must be online to approve the connection, as there will be no message storage system.</li>
+</ul>
+<h3 id="end-to-end-encryption">End-to-End Encryption</h3>
+<ul>
+<li><strong>Key Generation:</strong> Upon joining a group, a device generates two pairs of asymmetric keys:<ul>
+<li><strong>Encryption Keys:</strong> Used to encrypt clipboard content for each recipient using their public key.</li>
+<li><strong>Signing Keys:</strong> Used to sign the AES key and initialization vector to prove the sender's authenticity.</li>
+</ul>
+</li>
+<li><strong>Key Sharing:</strong> Public keys are sent to the server and distributed to other devices in the group.</li>
+</ul>
+<h3 id="data-structrue-for-transfer">Data Structrue for Transfer</h3>
+<p>For transferring data between the server and client, CTSYNC uses a custom structure. </p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>+--------------------+
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>| request_id (u32)   |
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>+--------------------+
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>| status_code (u8)   |
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>+--------------------+
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>| key1_size (u8)     |
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>+--------------------+
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>| value1_size (u64)  |
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>+--------------------+
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>| key1               |
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>+--------------------+
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>| value1             |
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>+--------------------+
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>| key2_size (u8)     |
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>+--------------------+
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>| value2_size (u64)  |
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>+--------------------+
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>| key2               |
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>+--------------------+
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>| value2             |
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>+--------------------+
+</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>| ...                |
+</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>+--------------------+
+</span></code></pre></div>
+<h2 id="server-and-account-management">Server and Account Management</h2>
+<h3 id="joining-the-server">Joining the Server</h3>
+<ul>
+<li><strong>Account Requirement:</strong> A device must create an account to join or create a group.</li>
+<li><strong>Registration Information:</strong><ul>
+<li><strong>Device Name:</strong> Visible to other devices.</li>
+<li><strong>Invite Key:</strong> Verifies the invitation to join the server.</li>
+</ul>
+</li>
+</ul>
+<h3 id="server-selection">Server Selection</h3>
+<ul>
+<li><strong>Connection Details:</strong> Devices must provide the server address (IP address or domain name) and port number during registration.</li>
+</ul>
+<h3 id="invite-key-management">Invite Key Management</h3>
+<ul>
+<li><strong>Format:</strong> A alphanumeric character sequence.</li>
+<li><strong>Storage:</strong> Invite keys are stored in a text file (<code>.txt</code> extension) with each line formatted as:
+  <div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>&lt;key&gt; &lt;valid-until&gt;
+</span></code></pre></div>
+  where <code>&lt;valid-until&gt;</code> is in ISO 8601 format.</li>
+<li><strong>Comments:</strong> Lines beginning with <code>#</code> (and any text after a space followed by <code>#</code>) are ignored.</li>
+<li>The server uses the invite key to verify that the client is authorized to connect.</li>
+</ul>
+<h2 id="join-group-process">Join Group Process</h2>
+<ul>
+<li><strong>Creating a Group:</strong> A device can create a new group, automatically becoming its first member.</li>
+<li><strong>Joining an Existing Group:</strong> A device must obtain a join key from an existing member and submit a join request for approval.</li>
+</ul>
+<h2 id="api-actions">API Actions</h2>
+<h3 id="pre-authentication">Pre-Authentication</h3>
+<table>
+<thead>
+<tr>
+<th>Action Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>PING</strong></td>
+<td>Check server availability</td>
+</tr>
+<tr>
+<td><strong>REGISTER_DEVICE</strong></td>
+<td>Create a new account</td>
+</tr>
+<tr>
+<td><strong>ACCESS_SERVER</strong></td>
+<td>Validate the server join invite key</td>
+</tr>
+<tr>
+<td><strong>LOGIN</strong></td>
+<td>Authenticate with the server</td>
+</tr>
+</tbody>
+</table>
+<h3 id="protected">Protected</h3>
+<table>
+<thead>
+<tr>
+<th>Action Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>CREATE_GROUP</strong></td>
+<td>Establish a new group</td>
+</tr>
+<tr>
+<td><strong>STORE_INVITE_KEY</strong></td>
+<td>Generate and store a new group invite key</td>
+</tr>
+<tr>
+<td><strong>JOIN_GROUP</strong></td>
+<td>Request to join an existing group</td>
+</tr>
+<tr>
+<td><strong>ACCEPT_DEVICE</strong></td>
+<td>Approve a pending join request</td>
+</tr>
+<tr>
+<td><strong>PULL</strong></td>
+<td>Retrieve the list of devices eligible to receive clipboard content</td>
+</tr>
+<tr>
+<td><strong>CLIPBOARD</strong></td>
+<td>Send clipboard data to a specific device</td>
+</tr>
+<tr>
+<td><strong>KICK_DEVICE</strong></td>
+<td>Remove a device from the group</td>
+</tr>
+<tr>
+<td><strong>GET_INVITE_KEY</strong></td>
+<td>Retrieve the group invite key for the requesting device</td>
+</tr>
+<tr>
+<td><strong>Disable Content Reception</strong></td>
+<td>Option to opt out of receiving clipboard data (under development)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="database-schema">Database Schema</h2>
+<h3 id="devices-table">Devices Table</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>id</strong></td>
+<td>INTEGER</td>
+<td>Unique identifier</td>
+</tr>
+<tr>
+<td><strong>device_name</strong></td>
+<td>TEXT</td>
+<td>Name of the device</td>
+</tr>
+<tr>
+<td><strong>device_id</strong></td>
+<td>TEXT</td>
+<td>Unique device identifier</td>
+</tr>
+<tr>
+<td><strong>access_key_hash</strong></td>
+<td>TEXT</td>
+<td>Hashed access key (password)</td>
+</tr>
+<tr>
+<td><strong>sign_pub_key</strong></td>
+<td>TEXT</td>
+<td>Public key for verifying the originator</td>
+</tr>
+<tr>
+<td><strong>pub_key</strong></td>
+<td>TEXT</td>
+<td>Public key for encrypting data</td>
+</tr>
+<tr>
+<td><strong>last_seen</strong></td>
+<td>DATETIME</td>
+<td>Last login timestamp</td>
+</tr>
+<tr>
+<td><strong>connection_state</strong></td>
+<td>TEXT</td>
+<td>Current state (e.g., online, offline, in-group)</td>
+</tr>
+<tr>
+<td><strong>receive_flag</strong></td>
+<td>INTEGER</td>
+<td>Flag indicating if the device accepts incoming data</td>
+</tr>
+<tr>
+<td><strong>group_id</strong></td>
+<td>INTEGER</td>
+<td>Foreign key referencing the group membership</td>
+</tr>
+</tbody>
+</table>
+<h3 id="group-table">Group Table</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>id</strong></td>
+<td>INTEGER</td>
+<td>Unique identifier</td>
+</tr>
+<tr>
+<td><strong>group_id</strong></td>
+<td>TEXT</td>
+<td>Group identifier</td>
+</tr>
+</tbody>
+</table>
+<h3 id="invite-keys-table">Invite Keys Table</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>id</strong></td>
+<td>INTEGER</td>
+<td>Unique identifier</td>
+</tr>
+<tr>
+<td><strong>key</strong></td>
+<td>TEXT</td>
+<td>Invite key</td>
+</tr>
+<tr>
+<td><strong>exp</strong></td>
+<td>DATETIME</td>
+<td>Expiration timestamp</td>
+</tr>
+<tr>
+<td><strong>creator</strong></td>
+<td>TEXT</td>
+<td>Identifier of the key creator</td>
+</tr>
+<tr>
+<td><strong>group_id</strong></td>
+<td>INTEGER</td>
+<td>Associated group ID (matches Group Table id)</td>
+</tr>
+<tr>
+<td><strong>is_valid</strong></td>
+<td>INTEGER</td>
+<td>Flag indicating key validity</td>
+</tr>
+<tr>
+<td><strong>creation_time</strong></td>
+<td>DATETIME</td>
+<td>Timestamp when the invite key was created</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+    
+  </body>
+</html>
