@@ -1,0 +1,9 @@
+backend/.ccls-cache
+backend/.build
+frontend/src-tauri/gen/
+backend/.cache
+backend/cpsync.db
+backend/invite_keys.txt
+backend/compile_commands.json
+vm
+mkdocs/site

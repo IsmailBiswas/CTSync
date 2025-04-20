@@ -1,0 +1,3 @@
+[submodule "backend/external/cequiq"]
+	path = backend/external/cequiq
+	url = git@github.com:IsmailBiswas/cequiq.git

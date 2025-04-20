@@ -1,0 +1,57 @@
+name: test-build the server and publish server image 
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build_on_host:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Install Dependencies
+        run: |
+          sudo apt update
+          sudo apt install -y build-essential cmake libssl-dev uuid-dev uthash-dev libsqlite3-dev libcjson-dev
+
+      - name: Build Server
+        run: |
+          cd backend
+          mkdir -p build && cd build
+          cmake .. && make
+
+      - name: Upload Build Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: server-binary
+          path: backend/build/CTSync-server
+
+  push_to_ghcr:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Log in to GitHub Container Registry
+        run: echo "${{ secrets.GHCR_TOKEN }}" | docker login ghcr.io -u "${{ secrets.GHCR_USERNAME }}" --password-stdin
+
+      - name: Build Docker image
+        working-directory: backend/compose
+        run: docker compose build
+
+      - name: Tag Docker image
+        run: |
+          docker tag ctsync_server:latest ghcr.io/${{ secrets.GHCR_USERNAME }}/ctsync:latest
+
+      - name: Push Docker image to GHCR
+        run: docker push ghcr.io/${{ secrets.GHCR_USERNAME }}/ctsync:latest
+

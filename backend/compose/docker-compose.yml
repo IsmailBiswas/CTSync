@@ -1,0 +1,13 @@
+services:
+  server:
+    build:
+      context: ../
+      dockerfile: compose/Dockerfile
+    image: ctsync_server
+    volumes:
+      - ./server_files:/app/server_files
+    ports:
+      - "${CTSYNC_PORT:-4343}:${CONTAINER_PORT:-4343}"
+    restart: unless-stopped
+    environment:
+      CTSYNC_PORT: ${CONTAINER_PORT:-4343}

@@ -1,0 +1,1 @@
+int db_migrate();
