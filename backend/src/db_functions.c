@@ -355,7 +355,6 @@ void free_group_device_list(GroupDeviceList *list) {
   free(list->public_key);
   free(list->sign_public_key);
   free(list->device_online_list);
-  free(list->device_online_list);
 
   list->count = 0;
   free(list);
