@@ -213,8 +213,10 @@ void group_check_action(CTSFrame *req_frame, CTSFrame *res_frame) {
     add_kv(res_frame, strlen(error_Key), error_Key, strlen(error_msg),
            error_msg);
     res_frame->status_code = CTSYNC_FAIL;
+    free(device_id);
     return;
   }
+  free(device_id);
   res_frame->status_code = CTSYNC_OK;
 }
 
@@ -228,6 +230,7 @@ void create_group_action(CTSFrame *req_frame, CTSFrame *res_frame) {
     add_kv(res_frame, strlen(error_key), error_key, strlen(error_msg),
            error_msg);
     res_frame->status_code = CTSYNC_FAIL;
+    free(device_id);
     return;
   }
 
@@ -239,6 +242,7 @@ void create_group_action(CTSFrame *req_frame, CTSFrame *res_frame) {
            error_msg);
     res_frame->status_code = CTSYNC_SERVER_ERROR;
 
+    free(device_id);
     return;
   };
   CTLOG(debug, "value should be uuid: %s", new_group_id);
@@ -252,11 +256,13 @@ void create_group_action(CTSFrame *req_frame, CTSFrame *res_frame) {
     add_kv(res_frame, strlen(error_key), error_key, strlen(error_msg),
            error_msg);
     res_frame->status_code = CTSYNC_SERVER_ERROR;
+    free(device_id);
     return;
   };
 
   // Send group creation status.
   res_frame->status_code = CTSYNC_OK;
+  free(device_id);
 }
 
 void login_device_action(CTSFrame *req_frame, CTSFrame *res_frame) {
@@ -286,6 +292,7 @@ void login_device_action(CTSFrame *req_frame, CTSFrame *res_frame) {
 
     res_frame->status_code = CTSYNC_SERVER_ERROR;
 
+    free(device_id);
     free(key);
     return;
   }
@@ -293,6 +300,8 @@ void login_device_action(CTSFrame *req_frame, CTSFrame *res_frame) {
   char *delimiter_pos = strstr(stored_hash_salt, KEY_VALUE_DELIMITER);
   if (!delimiter_pos) {
     res_frame->status_code = CTSYNC_SERVER_ERROR;
+    free(device_id);
+    free(key);
     return;
   }
   size_t hash_length = delimiter_pos - stored_hash_salt;
@@ -301,13 +310,17 @@ void login_device_action(CTSFrame *req_frame, CTSFrame *res_frame) {
   char *extracted_salt = malloc(salt_length + 1);
   if (!extracted_salt) {
     res_frame->status_code = CTSYNC_SERVER_ERROR;
+    free(device_id);
+    free(key);
     return;
   }
 
   char *extracted_hash = malloc(hash_length + 1);
   if (!extracted_hash) {
-    free(extracted_salt);
     res_frame->status_code = CTSYNC_SERVER_ERROR;
+    free(extracted_salt);
+    free(device_id);
+    free(key);
     return;
   }
 
@@ -324,9 +337,12 @@ void login_device_action(CTSFrame *req_frame, CTSFrame *res_frame) {
       strlen(key) + salt_length + strlen(KEY_VALUE_DELIMITER) + 1;
   char *key_salt_combo = malloc(key_salt_length);
   if (!key_salt_combo) {
+    res_frame->status_code = CTSYNC_SERVER_ERROR;
+    free(extracted_salt);
     free(extracted_hash);
     free(extracted_salt);
-    res_frame->status_code = CTSYNC_SERVER_ERROR;
+    free(device_id);
+    free(key);
     return;
   }
 
@@ -345,6 +361,7 @@ void login_device_action(CTSFrame *req_frame, CTSFrame *res_frame) {
   free(stored_hash_salt);
   free(extracted_hash);
   free(device_id);
+  free(key);
 };
 
 unsigned char *decode_base64(const char *input, size_t *sig_size) {
@@ -455,7 +472,7 @@ void store_invite_key_action(CTSFrame *req_frame, CTSFrame *res_frame) {
   char *exp = get_string_value_by_string_key(req_frame, "exp");
   char *signature = get_string_value_by_string_key(req_frame, "signature");
   char *group_id = NULL;
-  char *sing_pub_key = NULL;
+  char *sign_pub_key = NULL;
   char *connection_state = NULL;
   char *device_id = NULL;
 
@@ -491,15 +508,15 @@ void store_invite_key_action(CTSFrame *req_frame, CTSFrame *res_frame) {
   CTLOG(info, "user id is: %s", device_id);
   CTLOG(info, "user group id is: %s", group_id);
 
-  db_get_sing_pub_key(&sing_pub_key, device_id);
+  db_get_sing_pub_key(&sign_pub_key, device_id);
 
-  if (!sing_pub_key) {
+  if (!sign_pub_key) {
     res_frame->status_code = CTSYNC_SERVER_ERROR;
     CTLOG(warning, "store_invite_key: sign_pub_key not found");
     goto cleanup;
   }
 
-  if (verify_signature(sing_pub_key, signature, (unsigned char *)key,
+  if (verify_signature(sign_pub_key, signature, (unsigned char *)key,
                        strlen(key), (unsigned char *)exp, strlen(exp)) != 1) {
 
     char *error_key = "error";
@@ -556,6 +573,7 @@ void store_invite_key_action(CTSFrame *req_frame, CTSFrame *res_frame) {
   res_frame->status_code = CTSYNC_OK;
   char *rinvite_key_key = "invite_key";
   add_kv(res_frame, strlen(rinvite_key_key), rinvite_key_key, strlen(key), key);
+  goto cleanup;
 
 cleanup:
   free(key);
@@ -564,6 +582,7 @@ cleanup:
   free(device_id);
   free(connection_state);
   free(group_id);
+  free(sign_pub_key);
   return;
 }
 
@@ -735,6 +754,7 @@ void join_group_action(CTSFrame *req_frame, CTSFrame *res_frame) {
   char *group_id = NULL;
 
   db_get_invite_key(&is_valid, &creation_time, &exp, &group_id, key);
+  free(key);
 
   if (!is_valid || !exp || !creation_time || !group_id) {
     char *error_key = "error";
@@ -838,6 +858,7 @@ void join_group_action(CTSFrame *req_frame, CTSFrame *res_frame) {
     free(exp);
     free(creation_time);
     free(group_id);
+    free(device_id);
     return;
   }
 
@@ -846,6 +867,7 @@ void join_group_action(CTSFrame *req_frame, CTSFrame *res_frame) {
   free(exp);
   free(creation_time);
   free(group_id);
+  free(device_id);
 };
 
 void accept_device_action(CTSFrame *req_frame, CTSFrame *res_frame) {
@@ -950,6 +972,7 @@ void accept_device_action(CTSFrame *req_frame, CTSFrame *res_frame) {
   free(req_group_id);
   free(aprv_device_id);
   free(aprv_group_id);
+  free(requester_conn_id);
 }
 
 // creates a json object with all interested devices id and their public enc key
@@ -1136,6 +1159,8 @@ void send_clipboard_action(CTSFrame *req_frame, CTSFrame *res_frame) {
   free(conn_id);
   free(encd_iv);
   free(encd_key);
+  free(encd_data);
+  free_owned_frame(frame);
 }
 
 int send_group_devices(char *device_id) {
@@ -1223,6 +1248,7 @@ int send_group_devices(char *device_id) {
   free(group_id);
   free(json_data);
   cJSON_Delete(root);
+  free_owned_frame(frame);
   return 0;
 }
 
@@ -1231,7 +1257,6 @@ int send_group_devices(char *device_id) {
 // online list to every online device in the group
 // should be renamed to get_group_devices_action
 void online_devices_action(CTSFrame *req_frame, CTSFrame *res_frame) {
-  char *group_id = NULL;
 
   char *device_id = get_dev_id();
   if (!device_id) {
@@ -1243,91 +1268,7 @@ void online_devices_action(CTSFrame *req_frame, CTSFrame *res_frame) {
     req_frame->status_code = CTSYNC_FAIL;
   };
 
-  // get group id
-  // db_fetch_column_data(&group_id, "devices", "device_id", device_id,
-  //                      "group_id");
-
-  // if (!group_id) {
-  //   res_frame->status_code = CTSYNC_SERVER_ERROR;
-  //   free(device_id);
-  //   return;
-  // }
-
-  // // get all devices in own group
-  // GroupDeviceList *group_devices =
-  //     db_get_devices_by_group(group_id, DEVICE_STATE_ACCEPTED);
-
-  // // loop through each device in the active connection and create json object
-
-  // cJSON *root = cJSON_CreateArray();
-  // int is_online = 0;
-
-  // for (int i = 0; i < group_devices->count; i++) {
-  //   cJSON *obj = cJSON_CreateObject();
-  //   if (!cJSON_AddStringToObject(obj, "device_id",
-  //                                group_devices->device_id_list[i]) ||
-  //       !cJSON_AddStringToObject(obj, "device_name",
-  //                                group_devices->device_name_list[i]) ||
-  //       !cJSON_AddStringToObject(obj, "public_key",
-  //                                group_devices->public_key[i]) ||
-  //       !cJSON_AddStringToObject(obj, "sign_public_key",
-  //                                group_devices->sign_public_key[i])
-
-  //   ) {
-  //     CTLOG(error,
-  //           "skipping one device inclution: unable to create json object");
-  //     continue;
-  //   }
-
-  //   // if device is online set the is_online field
-  //   if (group_devices->device_online_list[i]) {
-  //     if (!cJSON_AddBoolToObject(obj, "is_online", true)) {
-  //       CTLOG(error, "failed to add a field to online devices list");
-  //     }
-  //   } else {
-  //     if (!cJSON_AddBoolToObject(obj, "is_online", false)) {
-  //       CTLOG(error, "failed to add a field to online devices list");
-  //     }
-  //   }
-  //   cJSON_AddItemToArray(root, obj);
-  // }
-
-  // char *json_data = cJSON_Print(root);
-
-  // char *data_key = "data";
-  // char *action_key = ACTION_KEY;
-  // char *action = "ONLINE_DEVICES";
-
-  // CTSFrame *frame = create_cts_frame();
-  // if (!frame) {
-  //   free_group_device_list(group_devices);
-  //   free(group_id);
-  //   free(json_data);
-  //   cJSON_Delete(root);
-  //   return;
-  // }
-
-  // // TODO: check every add_kv return value
-  // add_kv(frame, strlen(action_key), action_key, strlen(action), action);
-  // add_kv(frame, strlen(data_key), data_key, strlen(json_data), json_data);
-
-  // for (int i = 0; i < group_devices->count; i++) {
-  //   if (group_devices->device_online_list[i]) {
-  //     char *conn_id =
-  //     get_conn_id_by_dev_id(group_devices->device_id_list[i]); if (!conn_id)
-  //     {
-  //       CTLOG(debug, "device offline");
-  //       continue;
-  //     }
-  //     server_send(frame, conn_id);
-  //     free(conn_id);
-  //   }
-  // }
-
-  // free_group_device_list(group_devices);
-  // free(group_id);
-  // free(json_data);
-  // cJSON_Delete(root);
+  free(device_id);
 }
 
 void kick_device_action(CTSFrame *req_frame, CTSFrame *res_frame) {
@@ -1371,6 +1312,7 @@ void kick_device_action(CTSFrame *req_frame, CTSFrame *res_frame) {
                  "found; this is unexpected");
     free(kick_device_grp_id);
     free(kick_device_id);
+    free(device_id);
     return;
   }
 
@@ -1383,6 +1325,7 @@ void kick_device_action(CTSFrame *req_frame, CTSFrame *res_frame) {
     free(requester_grp_id);
     free(kick_device_grp_id);
     free(kick_device_id);
+    free(device_id);
     return;
   }
 
@@ -1390,11 +1333,6 @@ void kick_device_action(CTSFrame *req_frame, CTSFrame *res_frame) {
 
   send_group_devices(device_id);
   free(device_id);
-
-  // notifying other device that a device is gonski
-  /*
-  online_devices_action(req_frame, res_frame); // TODO: how do I handle this?
-  */
 
   // if kicked device is not online then just return
   char *kick_conn_id = get_conn_id_by_dev_id(kick_device_id);
@@ -1412,6 +1350,7 @@ void kick_device_action(CTSFrame *req_frame, CTSFrame *res_frame) {
     free(requester_grp_id);
     free(kick_device_grp_id);
     free(kick_device_id);
+    free(kick_conn_id);
     return;
   }
   char *action_key = ACTION_KEY;
@@ -1422,6 +1361,11 @@ void kick_device_action(CTSFrame *req_frame, CTSFrame *res_frame) {
   CTLOG(debug, "SENDING KICKED NOTIFICATION TO KICKED DEVICE!!");
   free_owned_frame(frame);
   // disconnect the connection, maybe not.
+
+  free(requester_grp_id);
+  free(kick_device_grp_id);
+  free(kick_device_id);
+  free(kick_conn_id);
 }
 
 void ping_action(CTSFrame *req_frame, CTSFrame *res_frame) {

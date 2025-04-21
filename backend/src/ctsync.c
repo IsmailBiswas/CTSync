@@ -21,7 +21,7 @@
 void pre_authz_action_processor(CTSFrame *req_frame, CTSFrame *res_frame) {
   CTLOG(debug, "pre_authz action processor");
 
-  const char *action = get_string_value_by_string_key(req_frame, ACTION_KEY);
+  char *action = get_string_value_by_string_key(req_frame, ACTION_KEY);
 
   if (!action) {
     char *error_key = "error";
@@ -69,12 +69,14 @@ void pre_authz_action_processor(CTSFrame *req_frame, CTSFrame *res_frame) {
     CTLOG(warning, "Unrecoginezed action for unauthenticated connection: %s",
           action);
   }
+
+  free(action);
 };
 
 void authenticated_data_process(CTSFrame *cts_frame, CTSFrame *res_frame) {
   CTLOG(debug, "authz action processor");
 
-  const char *action = get_string_value_by_string_key(cts_frame, ACTION_KEY);
+  char *action = get_string_value_by_string_key(cts_frame, ACTION_KEY);
   if (!action) {
     char *error_key = "error";
     char *error_msg = "Missing required key: 'action'.";
@@ -119,6 +121,7 @@ void authenticated_data_process(CTSFrame *cts_frame, CTSFrame *res_frame) {
     CTLOG(warning, "unrecoginezed action for authenticated connection: %s",
           action);
   }
+  free(action);
 }
 
 int get_port() {

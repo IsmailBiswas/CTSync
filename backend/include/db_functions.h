@@ -50,7 +50,7 @@ int db_register_device(char *device_name, char *access_key_hash,
                        char *device_id, char *sign_pub_key, char *pub_key);
 void db_get_hash_salt(char **data, const char *device_id);
 
-void db_get_sing_pub_key(char **data, const char *device_id);
+void db_get_sing_pub_key(char **key_ptr, const char *device_id);
 int db_create_invite_key(char *key, char *exp, char *creator, char *group_id,
                          char *is_valid, time_t creation_time);
 

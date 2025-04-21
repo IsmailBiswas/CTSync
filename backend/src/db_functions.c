@@ -346,7 +346,17 @@ void free_group_device_list(GroupDeviceList *list) {
   for (int i = 0; i < list->count; i++) {
     free(list->device_id_list[i]);
     free(list->device_name_list[i]);
+    free(list->public_key[i]);
+    free(list->sign_public_key[i]);
   }
+
+  free(list->device_id_list);
+  free(list->device_name_list);
+  free(list->public_key);
+  free(list->sign_public_key);
+  free(list->device_online_list);
+  free(list->device_online_list);
+
   list->count = 0;
   free(list);
 }
@@ -363,6 +373,8 @@ GroupDeviceList *db_get_devices_by_group(const char *group_id,
   result->device_id_list = NULL;
   result->device_name_list = NULL;
   result->device_online_list = NULL;
+  result->public_key = NULL;
+  result->sign_public_key = NULL;
   result->count = 0;
   if (!group_id) {
     free(result);
@@ -419,6 +431,7 @@ GroupDeviceList *db_get_devices_by_group(const char *group_id,
       if (conn_id) {
         result->device_online_list[i] = true;
       }
+      free(conn_id);
       result->device_id_list[i] = strdup((const char *)device_id);
       result->device_name_list[i] = strdup((const char *)device_name);
       result->public_key[i] = strdup((const char *)public_key);
@@ -793,10 +806,10 @@ void db_get_hash_salt(char **data, const char *device_id) {
   sqlite3_close(db);
 }
 
-void db_get_sing_pub_key(char **data, const char *device_id) {
+void db_get_sing_pub_key(char **key_ptr, const char *device_id) {
   sqlite3 *db;
   int rc;
-  *data = NULL;
+  *key_ptr = NULL;
 
   rc = sqlite3_open(DATABASE_LOC, &db);
   if (rc != SQLITE_OK) {
@@ -821,8 +834,8 @@ void db_get_sing_pub_key(char **data, const char *device_id) {
 
   if (rc == SQLITE_ROW) {
     // successfully retrieved a row
-    const unsigned char *group_id = sqlite3_column_text(stmt, 0);
-    *data = strdup((const char *)group_id);
+    const unsigned char *sign_pub_key = sqlite3_column_text(stmt, 0);
+    *key_ptr = strdup((const char *)sign_pub_key);
   } else if (rc == SQLITE_DONE) {
     CTLOG(debug, "no rows found for device_id: %s", device_id);
   } else {
