@@ -393,6 +393,14 @@ Otherwise, the server build will fail.</p>
 can choose one of three methods: building the Docker image locally, using a
 pre-built image from GitHub Container Registry, or building and running it
 directly on your host machine.</p>
+<details class="failure" open="open">
+<summary>The server cannot be built and run directly on Windows or macOS.</summary>
+<p>This server relies on Linux-specific APIs, primarily <code>epoll</code>, which is not
+available on Windows or macOS. As a result, it is not possible to build and
+run it natively on those platforms.</p>
+<p>However, on Windows, you can use WSL (Windows Subsystem for Linux) to build and run the server.
+On macOS, please consider using the docker option to run the server.</p>
+</details>
 <h3 id="option-1-build-locally-using-docker-compose">Option 1: Build Locally Using Docker Compose</h3>
 <p>Ensure you have both <code>Docker</code> and <code>Docker Compose</code> installed on your system.</p>
 <ol>
